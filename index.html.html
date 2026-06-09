@@ -1,47 +1,72 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" id="html-root">
+<html lang="ar" dir="rtl" id="app-root">
 <head>
     <meta charset="UTF-8">
-    <title>سفر الذهبي</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سفر الذهبي | رحلة العمرة</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?q=80&w=2000'); background-size: cover; background-position: center; }
+    </style>
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-50">
 
-    <nav class="bg-white p-4 shadow flex justify-between items-center">
-        <h1 class="text-2xl font-black text-yellow-600">سفر الذهبي</h1>
-        <div>
-            <button onclick="changeLang('ar')" class="font-bold p-2">العربية</button>
-            <button onclick="changeLang('fr')" class="font-bold p-2">Français</button>
+    <nav class="bg-white p-6 shadow-md flex justify-between items-center sticky top-0 z-50">
+        <h1 class="text-2xl font-black text-yellow-600">🕋 سفر الذهبي</h1>
+        <div class="flex gap-4 font-bold">
+            <button onclick="setLang('ar')" class="hover:text-yellow-600">العربية</button>
+            <button onclick="setLang('fr')" class="hover:text-yellow-600">Français</button>
         </div>
     </nav>
 
-    <div class="max-w-md mx-auto mt-10 bg-white p-6 rounded shadow">
-        <h2 id="form-title" class="text-xl font-bold mb-4 text-center">احجز مقعدك الآن</h2>
-        <form action="https://formspree.io/f/xqeobgdl" method="POST" class="space-y-4">
-            <input type="text" name="name" placeholder="الاسم الكامل" class="w-full p-2 border rounded" required>
-            <select name="city" class="w-full p-2 border rounded">
+    <header class="hero h-[60vh] flex flex-col justify-center items-center text-white text-center p-6">
+        <h2 id="hero-title" class="text-4xl md:text-5xl font-black mb-6">رحلة العمرة بـ فخامة وخشوع</h2>
+        <a href="#register" id="btn-hero" class="bg-yellow-600 px-8 py-3 rounded-full font-bold hover:bg-yellow-500 transition">احجز مقعدك الآن</a>
+    </header>
+
+    <section id="register" class="py-16 px-4 max-w-lg mx-auto">
+        <h2 id="form-title" class="text-2xl font-black mb-6 text-center">سجل معلوماتك ونعيطو ليك</h2>
+        <form action="https://formspree.io/f/xqeobgdl" method="POST" class="bg-white p-8 rounded-2xl shadow-xl space-y-4 border">
+            <input type="text" name="name" placeholder="الاسم الكامل" class="w-full p-3 border rounded-xl" required>
+            <input type="tel" name="phone" placeholder="رقم الهاتف" class="w-full p-3 border rounded-xl" required>
+            <select name="city" class="w-full p-3 border rounded-xl bg-gray-50">
                 <option>سلا الجديدة</option>
                 <option>الدار البيضاء</option>
                 <option>القنيطرة</option>
                 <option>أكادير</option>
             </select>
-            <button type="submit" id="btn-submit" class="w-full bg-green-600 text-white p-2 rounded">إرسال الطلب</button>
+            <button type="submit" id="btn-submit" class="w-full bg-green-600 text-white py-3 rounded-xl font-bold hover:bg-green-700">إرسال الطلب</button>
         </form>
-    </div>
+    </section>
 
-    <div class="max-w-md mx-auto mt-10 p-4">
-        <h2 id="faq-title" class="text-xl font-bold mb-4 text-center">أسئلة شائعة</h2>
-        <div class="space-y-2">
-            <details class="bg-white p-2 rounded"><summary class="font-bold cursor-pointer">الوثائق المطلوبة؟</summary><p>جواز سفر، صور، وتلقيح.</p></details>
-            <details class="bg-white p-4 rounded"><summary class="font-bold cursor-pointer">أفضل وقت للعمرة؟</summary><p>طول السنة، ورمضان له مكانة خاصة.</p></details>
+    <section class="py-16 px-4 max-w-3xl mx-auto">
+        <h2 id="faq-title" class="text-2xl font-black mb-8 text-center">أسئلة شائعة</h2>
+        <div class="space-y-4" id="faq-list">
+            <details class="bg-white p-5 rounded-xl shadow border"><summary class="font-bold cursor-pointer">ماهي الوثائق المطلوبة؟</summary><p class="mt-2 text-gray-600">جواز سفر بيومتري، صور شخصية، وتلقيح.</p></details>
+            <details class="bg-white p-5 rounded-xl shadow border"><summary class="font-bold cursor-pointer">أفضل وقت للعمرة؟</summary><p class="mt-2 text-gray-600">العمرة متاحة طول السنة، ورمضان له مكانة خاصة.</p></details>
+            <details class="bg-white p-5 rounded-xl shadow border"><summary class="font-bold cursor-pointer">سفر النساء؟</summary><p class="mt-2 text-gray-600">فوق سن 45 يمكنهن السفر ضمن مجموعة، دون ذلك يجب مَحرم.</p></details>
+            <details class="bg-white p-5 rounded-xl shadow border"><summary class="font-bold cursor-pointer">ما هي خدماتنا؟</summary><p class="mt-2 text-gray-600">طيران، فندق قريب، تنقلات ومرافقين مؤهلين.</p></details>
         </div>
-    </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-12 text-center px-4">
+        <p class="font-bold text-yellow-500 mb-2">أوقات العمل</p>
+        <p>الاثنين - الثلاثاء: 09:00 - 13:00 | 15:00 - 18:00</p>
+        <p>السبت: 09:00 - 13:00 | الأحد: مغلق</p>
+    </footer>
+
+    <a href="https://wa.me/212665060839" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl text-2xl z-50">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script>
-        function changeLang(lang) {
-            const root = document.getElementById('html-root');
+        function setLang(lang) {
+            const root = document.getElementById('app-root');
             root.dir = (lang === 'ar') ? 'rtl' : 'ltr';
-            document.getElementById('form-title').innerText = (lang === 'ar') ? "احجز مقعدك الآن" : "Réservez votre place";
+            document.getElementById('hero-title').innerText = (lang === 'ar') ? "رحلة العمرة بـ فخامة وخشوع" : "Voyage Omra avec luxe et spiritualité";
+            document.getElementById('btn-hero').innerText = (lang === 'ar') ? "احجز مقعدك الآن" : "Réservez votre place";
+            document.getElementById('form-title').innerText = (lang === 'ar') ? "سجل معلوماتك ونعيطو ليك" : "Inscrivez-vous";
             document.getElementById('btn-submit').innerText = (lang === 'ar') ? "إرسال الطلب" : "Envoyer";
             document.getElementById('faq-title').innerText = (lang === 'ar') ? "أسئلة شائعة" : "Questions fréquentes";
         }

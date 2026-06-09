@@ -1,80 +1,75 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" id="lang-root">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سفر الذهبي | وكالة الأسفار المعتمدة</title>
+    <title>سفر الذهبي | رحلة العمرة</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .hero-bg { background-image: url('https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?q=80&w=2000'); background-size: cover; background-position: center; }
+        .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?q=80&w=2000'); background-size: cover; background-position: center; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50">
 
-    <nav class="bg-white p-4 shadow-sm flex justify-between items-center sticky top-0 z-50">
-        <h1 class="text-xl font-black text-yellow-600">🕋 سفر الذهبي</h1>
-        <div class="flex gap-4 font-bold">
-            <button onclick="setLang('ar')" class="hover:text-yellow-600">العربية</button>
-            <button onclick="setLang('fr')" class="hover:text-yellow-600">Français</button>
-        </div>
+    <nav class="bg-white p-4 shadow flex justify-between items-center sticky top-0 z-50">
+        <h1 class="text-xl font-black text-yellow-600">سفر الذهبي 🕋</h1>
+        <div class="text-sm font-bold">الرئيسية | عروض العمرة | فروعنا</div>
     </nav>
 
-    <header class="hero-bg h-[60vh] flex flex-col justify-center items-center text-white text-center px-4">
-        <h2 id="hero-title" class="text-4xl font-black mb-4">رحلة العمرة بـ فخامة وخشوع</h2>
-        <a href="#register" id="hero-btn" class="bg-yellow-600 text-white px-8 py-3 rounded-full font-bold hover:bg-yellow-500">احجز مقعدك الآن</a>
+    <header class="hero h-[50vh] flex flex-col justify-center items-center text-white text-center">
+        <h2 class="text-4xl font-black mb-4">رحلة العمرة بـ فخامة وخشوع</h2>
+        <p>سفر الذهبي | خبيرك الموثوق فتنظيم العمرة من 2016</p>
     </header>
 
-    <section class="py-16 max-w-6xl mx-auto px-4">
-        <h2 id="offers-title" class="text-3xl font-black mb-12 text-center tracking-tight">عروض العمرة 2026</h2>
-        <div class="grid md:grid-cols-4 gap-6">
-            <div class="bg-white p-6 rounded-2xl border shadow-sm">عمرة المولد</div>
-            <div class="bg-white p-6 rounded-2xl border shadow-sm">عمرة رجب</div>
-            <div class="bg-white p-6 rounded-2xl border shadow-sm">عمرة شعبان</div>
-            <div class="bg-white p-6 rounded-2xl border shadow-sm">عمرة رمضان</div>
+    <section class="py-10 px-4 max-w-4xl mx-auto">
+        <h2 class="text-2xl font-black mb-6">عروض العمرة 2026</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="bg-white p-4 border rounded-lg text-center font-bold">عمرة رمضان</div>
+            <div class="bg-white p-4 border rounded-lg text-center font-bold">عمرة شعبان</div>
+            <div class="bg-white p-4 border rounded-lg text-center font-bold">عمرة رجب</div>
+            <div class="bg-white p-4 border rounded-lg text-center font-bold">عمرة المولد</div>
         </div>
     </section>
 
-    <section class="bg-white py-16 px-4">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
-            <div class="border p-6 rounded-2xl">
-                <h3 class="font-bold text-lg mb-2">سلا الجديدة</h3>
-                <p class="text-sm mb-4">N° 5, Romana Garden, Av. Hassan 2, Magasin 30-26</p>
-                <div class="h-48 bg-gray-200 rounded-xl overflow-hidden">
-                    <iframe src="https://www.google.com/maps/..." width="100%" height="100%" frameborder="0"></iframe>
-                </div>
+    <section class="bg-white py-10 px-4">
+        <h2 class="text-2xl font-black mb-6 text-center">فروعنا وأوقات العمل</h2>
+        <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
+            <div class="border p-4 rounded-lg">
+                <h3 class="font-bold">سلا الجديدة</h3>
+                <p class="text-sm mb-2">Romana Garden, Av. Hassan 2, Magasin 30-26</p>
+                <a href="https://maps.app.goo.gl/رابط_سلا" class="text-blue-600 underline">اضغط هنا لفتح الموقع في Maps</a>
             </div>
-            <div class="border p-6 rounded-2xl">
-                <h3 class="font-bold text-lg mb-2">الدار البيضاء</h3>
-                <p class="text-sm mb-4">2 Rue Oulad Teima, Casablanca 20250</p>
-                <div class="h-48 bg-gray-200 rounded-xl overflow-hidden">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.7711417535565!2d-6.738012!3d33.585501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7b15a00000001%3A0x0!2sRomana+Garden!5e0!3m2!1sfr!2sma!4v1620000000000" width="100%" height="100%" frameborder="0"></iframe>
-                </div>
+            <div class="border p-4 rounded-lg">
+                <h3 class="font-bold">الدار البيضاء</h3>
+                <p class="text-sm mb-2">2 Rue Oulad Teima, Casablanca 20250</p>
+                <a href="https://maps.app.goo.gl/رابط_كازا" class="text-blue-600 underline">اضغط هنا لفتح الموقع في Maps</a>
             </div>
+        </div>
+        <div class="mt-8 text-center bg-gray-100 p-4 rounded-lg">
+            <p class="font-bold text-yellow-700">أوقات العمل:</p>
+            <p>الاثنين - الثلاثاء: 09:00 - 13:00 / 15:00 - 18:00</p>
+            <p>السبت: 09:00 - 13:00 | الأحد: مغلق</p>
         </div>
     </section>
 
-    <section class="py-16 bg-gray-100 px-4 max-w-4xl mx-auto">
-        <h2 id="faq-title" class="text-2xl font-black mb-6">أسئلة شائعة</h2>
-        <details class="bg-white p-4 rounded-lg mb-2 cursor-pointer shadow">
-            <summary class="font-bold">ماهي الوثائق المطلوبة؟</summary>
-            <p class="mt-2 text-gray-600">جواز سفر، صور، تلقيح...</p>
-        </details>
+    <section class="py-10 px-4 max-w-4xl mx-auto">
+        <h2 class="text-2xl font-black mb-6">أسئلة شائعة</h2>
+        <div class="space-y-4">
+            <details class="bg-white p-4 rounded-lg shadow">
+                <summary class="font-bold cursor-pointer">ماهي الوثائق المطلوبة لحجز العمرة؟</summary>
+                <p class="mt-2 text-gray-600">جواز سفر بيومتري، صور شخصية، وتلقيح ضد كورونا (أو حسب التوجيهات الحالية).</p>
+            </details>
+            <details class="bg-white p-4 rounded-lg shadow">
+                <summary class="font-bold cursor-pointer">كيف يمكنني تخصيص باقة فردية؟</summary>
+                <p class="mt-2 text-gray-600">نعم، يمكنك التواصل معنا لتعديل مدة الإقامة أو اختيار فنادق معينة حسب رغبتك.</p>
+            </details>
+        </div>
     </section>
 
-    <footer class="bg-gray-900 text-white py-12 px-4 text-center">
-        <p id="work-hours-title" class="font-bold text-yellow-500 mb-4">أوقات العمل</p>
-        <p>الاثنين - الثلاثاء: 09:00 - 13:00 / 15:00 - 18:00</p>
-        <p>السبت: 09:00 - 13:00 | الأحد: مغلق</p>
-        <p class="mt-6 text-gray-400">contact@voyageor.com</p>
-    </footer>
+    <a href="https://wa.me/212665060839" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg text-2xl">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-    <script>
-        function setLang(lang) {
-            const root = document.getElementById('lang-root');
-            root.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-            root.setAttribute('lang', lang);
-            // هنا تقدر تزيد لوجيك لتغيير النصوص حسب اللغة
-        }
-    </script>
 </body>
 </html>

@@ -1,65 +1,49 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" id="app-root">
+<html lang="ar" dir="rtl" id="html-root">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سفر الذهبي | وكالة الأسفار</title>
+    <title>سفر الذهبي</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-100">
 
-    <nav class="bg-white p-4 shadow flex justify-between items-center sticky top-0 z-50">
-        <h1 class="text-xl font-black text-yellow-600">سفر الذهبي 🕋</h1>
-        <div class="flex gap-4 font-bold">
-            <button onclick="setLang('ar')" class="hover:text-yellow-600">العربية</button>
-            <button onclick="setLang('fr')" class="hover:text-yellow-600">Français</button>
+    <nav class="bg-white p-4 shadow flex justify-between items-center">
+        <h1 class="text-2xl font-black text-yellow-600">سفر الذهبي</h1>
+        <div>
+            <button onclick="changeLang('ar')" class="font-bold p-2">العربية</button>
+            <button onclick="changeLang('fr')" class="font-bold p-2">Français</button>
         </div>
     </nav>
 
-    <header class="bg-yellow-900 text-white p-16 text-center">
-        <h2 id="hero-text" class="text-3xl font-black">رحلة العمرة بـ فخامة وخشوع</h2>
-    </header>
-
-    <section id="register" class="py-12 px-4 max-w-lg mx-auto">
-        <h2 id="form-title" class="text-2xl font-black mb-6 text-center">احجز مقعدك الآن</h2>
-        <form action="https://formspree.io/f/xqeobgdl" method="POST" class="bg-white p-6 rounded-xl shadow border space-y-4">
-            <input type="text" name="name" placeholder="الاسم الكامل" class="w-full p-3 border rounded" required>
-            <input type="tel" name="phone" placeholder="رقم الهاتف" class="w-full p-3 border rounded" required>
-            
-            <label class="block font-bold">اختر الفرع:</label>
-            <select name="city" class="w-full p-3 border rounded">
+    <div class="max-w-md mx-auto mt-10 bg-white p-6 rounded shadow">
+        <h2 id="form-title" class="text-xl font-bold mb-4 text-center">احجز مقعدك الآن</h2>
+        <form action="https://formspree.io/f/xqeobgdl" method="POST" class="space-y-4">
+            <input type="text" name="name" placeholder="الاسم الكامل" class="w-full p-2 border rounded" required>
+            <select name="city" class="w-full p-2 border rounded">
                 <option>سلا الجديدة</option>
                 <option>الدار البيضاء</option>
                 <option>القنيطرة</option>
                 <option>أكادير</option>
             </select>
-            
-            <button type="submit" id="btn-submit" class="w-full bg-green-600 text-white py-3 rounded font-bold">إرسال الطلب</button>
+            <button type="submit" id="btn-submit" class="w-full bg-green-600 text-white p-2 rounded">إرسال الطلب</button>
         </form>
-    </section>
+    </div>
 
-    <section class="py-10 px-4 max-w-3xl mx-auto">
-        <h2 id="faq-title" class="text-2xl font-black mb-6 text-center">أسئلة شائعة</h2>
-        <div class="space-y-3">
-            <details class="bg-white p-4 rounded shadow"><summary class="font-bold cursor-pointer">الوثائق المطلوبة؟</summary><p class="text-gray-600">جواز سفر بيومتري، صور، وتلقيح.</p></details>
-            <details class="bg-white p-4 rounded shadow"><summary class="font-bold cursor-pointer">أفضل وقت للعمرة؟</summary><p class="text-gray-600">طول السنة، ورمضان له مكانة خاصة.</p></details>
-            <details class="bg-white p-4 rounded shadow"><summary class="font-bold cursor-pointer">سفر النساء؟</summary><p class="text-gray-600">فوق 45 سنة ضمن مجموعة، أو مَحرم.</p></details>
+    <div class="max-w-md mx-auto mt-10 p-4">
+        <h2 id="faq-title" class="text-xl font-bold mb-4 text-center">أسئلة شائعة</h2>
+        <div class="space-y-2">
+            <details class="bg-white p-2 rounded"><summary class="font-bold cursor-pointer">الوثائق المطلوبة؟</summary><p>جواز سفر، صور، وتلقيح.</p></details>
+            <details class="bg-white p-4 rounded"><summary class="font-bold cursor-pointer">أفضل وقت للعمرة؟</summary><p>طول السنة، ورمضان له مكانة خاصة.</p></details>
         </div>
-    </section>
+    </div>
 
     <script>
-        const translations = {
-            ar: { hero: "رحلة العمرة بـ فخامة وخشوع", title: "احجز مقعدك الآن", btn: "إرسال الطلب", faq: "أسئلة شائعة" },
-            fr: { hero: "Voyage Omra avec luxe et spiritualité", title: "Réservez votre place", btn: "Envoyer la demande", faq: "Questions fréquentes" }
-        };
-
-        function setLang(lang) {
-            const root = document.getElementById('app-root');
+        function changeLang(lang) {
+            const root = document.getElementById('html-root');
             root.dir = (lang === 'ar') ? 'rtl' : 'ltr';
-            document.getElementById('hero-text').innerText = translations[lang].hero;
-            document.getElementById('form-title').innerText = translations[lang].title;
-            document.getElementById('btn-submit').innerText = translations[lang].btn;
-            document.getElementById('faq-title').innerText = translations[lang].faq;
+            document.getElementById('form-title').innerText = (lang === 'ar') ? "احجز مقعدك الآن" : "Réservez votre place";
+            document.getElementById('btn-submit').innerText = (lang === 'ar') ? "إرسال الطلب" : "Envoyer";
+            document.getElementById('faq-title').innerText = (lang === 'ar') ? "أسئلة شائعة" : "Questions fréquentes";
         }
     </script>
 </body>

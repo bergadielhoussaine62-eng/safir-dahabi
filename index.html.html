@@ -1,54 +1,247 @@
 
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" id="main-html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>وكالة سفر الذهبي | Safir Al Dhahabi</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>body { font-family: 'Tajawal', sans-serif; }</style>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Tajawal', sans-serif; transition: all 0.3s ease; }
+        .hero-bg { background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?q=80&w=2000'); background-size: cover; background-position: center; }
+        .lang-en, .lang-fr { font-family: 'Poppins', sans-serif; display: none; }
+        [dir="ltr"] .lang-ar { display: none; }
+        [dir="ltr"] .lang-en, [dir="ltr"] .lang-fr { display: block; }
+    </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-50 text-gray-800">
 
-    <nav class="bg-white shadow-md p-4 sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-black text-yellow-600">سفر الذهبي</h1>
-            <div class="hidden md:flex gap-6 font-bold">
-                <a href="#home">الرئيسية</a>
-                <a href="#about">من نحن</a>
-                <a href="#register">سجل طلبك</a>
-                <a href="#contact">اتصل بنا</a>
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-black text-emerald-800" id="logo">🕋 سفر الذهبي</div>
+            
+            <div class="hidden md:flex gap-8 font-bold text-gray-600">
+                <a href="#home" class="hover:text-emerald-700" id="nav-home">الرئيسية</a>
+                <a href="#about" class="hover:text-emerald-700" id="nav-about">من نحن</a>
+                <a href="#trips" class="hover:text-emerald-700" id="nav-trips">رحلاتنا</a>
+                <a href="#branches" class="hover:text-emerald-700" id="nav-branches">فروعنا</a>
             </div>
-            <div class="text-xs font-bold text-gray-500">AR | FR | EN</div>
+
+            <div class="flex gap-2">
+                <button onclick="setLanguage('ar')" class="px-2 py-1 bg-emerald-100 text-emerald-800 rounded text-xs font-bold border border-emerald-300">عربي</button>
+                <button onclick="setLanguage('fr')" class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs font-bold border border-gray-300">FR</button>
+                <button onclick="setLanguage('en')" class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs font-bold border border-gray-300">EN</button>
+            </div>
         </div>
     </nav>
 
-    <header id="home" class="h-screen flex flex-col justify-center items-center text-white text-center px-4" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?q=80&w=2000'); background-size: cover; background-position: center;">
-        <h2 class="text-4xl md:text-6xl font-black mb-6">رحلة العمرة بـ فخامة وخشوع</h2>
-        <p class="text-xl mb-8">Safir Al Dhahabi | Travel Agency Since 2016</p>
+    <header id="home" class="hero-bg h-[80vh] flex flex-col justify-center items-center text-white text-center px-4">
+        <h2 id="hero-title" class="text-4xl md:text-7xl font-black mb-6 leading-tight">عمرة تجمع بين العبادة والراحة</h2>
+        <p id="hero-sub" class="text-xl md:text-2xl mb-8 text-emerald-100">وكالة سفر الذهبي | خبرة وتميز منذ 2016</p>
+        <a href="#register" id="hero-btn" class="bg-amber-500 text-emerald-950 px-10 py-4 rounded-xl font-black text-lg hover:bg-amber-400 transition shadow-2xl">سجل الآن / Register Now</a>
     </header>
 
-    <section id="register" class="py-20 max-w-2xl mx-auto px-4">
-        <h3 class="text-3xl font-black text-emerald-900 mb-8 text-center">سجل معلوماتك (Join Us)</h3>
-        <form action="https://formspree.io/f/xqeobgdl" method="POST" class="bg-white p-8 rounded-2xl shadow-lg space-y-4">
-            <input type="text" name="name" placeholder="الاسم الكامل / Full Name" class="w-full p-3 border rounded-xl" required>
-            <input type="email" name="email" placeholder="البريد الإلكتروني / Email" class="w-full p-3 border rounded-xl" required>
-            <input type="tel" name="phone" placeholder="رقم الهاتف / Phone Number" class="w-full p-3 border rounded-xl" required>
-            <select name="trip" class="w-full p-3 border rounded-xl">
-                <option>اختر الرحلة / Choose Trip</option>
-                <option>عمرة اقتصادية / Economy</option>
-                <option>عمرة VIP / Premium</option>
-            </select>
-            <button type="submit" class="w-full bg-yellow-600 text-white font-bold py-4 rounded-xl hover:bg-yellow-500 transition">إرسال الطلب / Send Request</button>
-        </form>
+    <section id="about" class="py-20 max-w-5xl mx-auto px-4 text-center">
+        <h3 id="about-title" class="text-3xl font-black text-emerald-900 mb-6 uppercase tracking-wide">من نحن - About Us</h3>
+        <p id="about-text" class="text-lg text-gray-600 leading-relaxed">
+            تأسست وكالة "سفر الذهبي" سنة 2016 كشركة مغربية رائدة في مجال السياحة الدينية. نهدف إلى تقديم تجربة عمرة استثنائية تجمع بين الروحانية والرفاهية، من خلال تأطير علمي ديني متميز وخدمات سكن ونقل من أرقى طراز.
+        </p>
     </section>
 
-    <footer id="contact" class="bg-gray-900 text-white p-10 text-center">
-        <h3 class="text-2xl font-bold mb-4">اتصل بنا / Contact Us</h3>
-        <a href="https://wa.me/212665060839" class="text-green-400 text-xl font-bold">💬 WhatsApp: +212 665-060839</a>
-        <p class="mt-4 text-gray-400 italic">We speak Arabic, French, and English</p>
+    <section id="trips" class="py-20 bg-emerald-900 text-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h3 id="trips-title" class="text-4xl font-black mb-12 text-center text-amber-500">برامج العمرة حسب الشهور الهجرية</h3>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+                <div class="bg-emerald-800 p-6 rounded-2xl border border-emerald-700 hover:border-amber-500 transition">
+                    <div class="text-3xl mb-4">🌙</div>
+                    <h4 class="text-xl font-bold mb-2">عمرة المولد</h4>
+                    <p class="text-sm text-emerald-200">بداية الموسم ببرامج روحانية مميزة</p>
+                </div>
+                <div class="bg-emerald-800 p-6 rounded-2xl border border-emerald-700 hover:border-amber-500 transition">
+                    <div class="text-3xl mb-4">🕌</div>
+                    <h4 class="text-xl font-bold mb-2">عمرة رجب</h4>
+                    <p class="text-sm text-emerald-200">الاستعداد والسكينة في شهر رجب</p>
+                </div>
+                <div class="bg-emerald-800 p-6 rounded-2xl border border-emerald-700 hover:border-amber-500 transition">
+                    <div class="text-3xl mb-4">✨</div>
+                    <h4 class="text-xl font-bold mb-2">عمرة شعبان</h4>
+                    <p class="text-sm text-emerald-200">عمرة القرب والنفحات الإيمانية</p>
+                </div>
+                <div class="bg-emerald-800 p-6 rounded-2xl border border-emerald-700 hover:border-amber-500 transition">
+                    <div class="text-3xl mb-4">🕋</div>
+                    <h4 class="text-xl font-bold mb-2">عمرة رمضان</h4>
+                    <p class="text-sm text-emerald-200">أجواء الحرم الساحرة في شهر الصيام</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="branches" class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <h3 id="branches-title" class="text-3xl font-black text-emerald-900 mb-12 text-center">فروعنا في المغرب - Our Branches</h3>
+            <div class="flex flex-wrap justify-center gap-6">
+                <span class="bg-white px-6 py-3 rounded-full shadow-md font-bold text-emerald-800 border-b-4 border-amber-500">📍 أكادير</span>
+                <span class="bg-white px-6 py-3 rounded-full shadow-md font-bold text-emerald-800 border-b-4 border-amber-500">📍 القنيطرة</span>
+                <span class="bg-white px-6 py-3 rounded-full shadow-md font-bold text-emerald-800 border-b-4 border-amber-500">📍 الدار البيضاء</span>
+                <span class="bg-white px-6 py-3 rounded-full shadow-md font-bold text-emerald-800 border-b-4 border-amber-500">📍 سلا الجديدة</span>
+                <span class="bg-white px-6 py-3 rounded-full shadow-md font-bold text-emerald-800 border-b-4 border-amber-500">📍 الجديدة</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="register" class="py-20 max-w-3xl mx-auto px-4">
+        <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl border border-gray-100 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-2 h-full bg-amber-500"></div>
+            <h3 id="form-title" class="text-3xl font-black text-emerald-900 mb-2">احجز مقعدك الآن</h3>
+            <p id="form-sub" class="text-gray-500 mb-8">سجل معلوماتك وسنتصل بك لتأكيد الحجز وتفاصيل الرحلة</p>
+            
+            <form action="https://formspree.io/f/xqeobgdl" method="POST" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold mb-1 text-gray-400">الاسم الكامل / Full Name</label>
+                    <input type="text" name="name" required class="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none">
+                </div>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold mb-1 text-gray-400">رقم الهاتف / Phone</label>
+                        <input type="tel" name="phone" required class="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold mb-1 text-gray-400">المدينة / City</label>
+                        <select name="city" class="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl outline-none">
+                            <option>أكادير</option>
+                            <option>القنيطرة</option>
+                            <option>الدار البيضاء</option>
+                            <option>سلا الجديدة</option>
+                            <option>الجديدة</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold mb-1 text-gray-400">نوع العمرة / Trip Type</label>
+                    <select name="trip_type" class="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl outline-none">
+                        <option>عمرة المولد</option>
+                        <option>عمرة رجب</option>
+                        <option>عمرة شعبان</option>
+                        <option>عمرة رمضان</option>
+                    </select>
+                </div>
+                <button type="submit" id="form-btn" class="w-full bg-emerald-800 text-white font-black py-4 rounded-xl hover:bg-emerald-700 transition-all shadow-lg text-lg">إرسال الطلب / Send Request</button>
+            </form>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-gray-900 text-white py-16 px-4 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-3xl font-black text-amber-500 mb-6">سفر الذهبي</h3>
+            <p class="mb-8 text-gray-400 leading-relaxed">نحن نعتني بأدق تفاصيل رحلتكم لتركزوا أنتم على العبادة فقط. مرافقة علمية، سكن راقي، وتنظيم مغربي أصيل.</p>
+            
+            <div class="flex flex-col md:flex-row justify-center gap-8 items-center border-t border-gray-800 pt-10">
+                <a href="https://wa.me/212665060839" class="bg-green-600 px-8 py-3 rounded-full font-bold text-xl flex items-center gap-3 hover:bg-green-500 transition">
+                    <span>+212 665-060839</span>
+                    <span class="text-2xl">💬</span>
+                </a>
+                <div class="text-gray-400">
+                    <p>contact@safirdhahabi.ma</p>
+                </div>
+            </div>
+            <p class="mt-12 text-xs text-gray-600">&copy; 2026 Safir Al Dhahabi. All rights reserved.</p>
+        </div>
     </footer>
 
+    <script>
+        const translations = {
+            ar: {
+                logo: "🕋 سفر الذهبي",
+                navHome: "الرئيسية",
+                navAbout: "من نحن",
+                navTrips: "رحلاتنا",
+                navBranches: "فروعنا",
+                heroTitle: "عمرة تجمع بين العبادة والراحة",
+                heroSub: "وكالة سفر الذهبي | خبرة وتميز منذ 2016",
+                heroBtn: "سجل الآن",
+                aboutTitle: "من نحن",
+                aboutText: "تأسست وكالة سفر الذهبي سنة 2016 كشركة مغربية رائدة في مجال السياحة الدينية. نهدف إلى تقديم تجربة عمرة استثنائية تجمع بين الروحانية والرفاهية.",
+                tripsTitle: "برامج العمرة حسب الشهور",
+                branchesTitle: "فروعنا في المغرب",
+                formTitle: "احجز مقعدك الآن",
+                formSub: "سجل معلوماتك وسنتصل بك لتأكيد الحجز",
+                formBtn: "إرسال الطلب",
+                dir: "rtl",
+                lang: "ar"
+            },
+            fr: {
+                logo: "🕋 Safir Al Dhahabi",
+                navHome: "Accueil",
+                navAbout: "À Propos",
+                navTrips: "Nos Voyages",
+                navBranches: "Nos Agences",
+                heroTitle: "Omra: Spiritualité et Confort",
+                heroSub: "Safir Al Dhahabi | Expertise depuis 2016",
+                heroBtn: "Inscrivez-vous",
+                aboutTitle: "À Propos de Nous",
+                aboutText: "Fondée en 2016, Safir Al Dhahabi est une agence marocaine leader dans le tourisme religieux. Nous offrons une expérience d'Omra alliant luxe et spiritualité.",
+                tripsTitle: "Programmes par Mois Hijri",
+                branchesTitle: "Nos Agences au Maroc",
+                formTitle: "Réservez Votre Place",
+                formSub: "Laissez vos coordonnées, nous vous rappellerons",
+                formBtn: "Envoyer la Demande",
+                dir: "ltr",
+                lang: "fr"
+            },
+            en: {
+                logo: "🕋 Safir Al Dhahabi",
+                navHome: "Home",
+                navAbout: "About Us",
+                navTrips: "Our Trips",
+                navBranches: "Branches",
+                heroTitle: "Umrah: Spirituality & Comfort",
+                heroSub: "Safir Al Dhahabi | Excellence since 2016",
+                heroBtn: "Join Us Now",
+                aboutTitle: "About Us",
+                aboutText: "Established in 2016, Safir Al Dhahabi is a leading Moroccan travel agency specializing in religious tourism. We combine comfort with devotion.",
+                tripsTitle: "Umrah Plans by Month",
+                branchesTitle: "Our Branches in Morocco",
+                formTitle: "Book Your Spot",
+                formSub: "Fill the form and we will call you soon",
+                formBtn: "Send Request",
+                dir: "ltr",
+                lang: "en"
+            }
+        };
+
+        function setLanguage(lang) {
+            const t = translations[lang];
+            document.getElementById('main-html').setAttribute('dir', t.dir);
+            document.getElementById('main-html').setAttribute('lang', t.lang);
+            
+            document.getElementById('logo').innerText = t.logo;
+            document.getElementById('nav-home').innerText = t.navHome;
+            document.getElementById('nav-about').innerText = t.navAbout;
+            document.getElementById('nav-trips').innerText = t.navTrips;
+            document.getElementById('nav-branches').innerText = t.navBranches;
+            
+            document.getElementById('hero-title').innerText = t.heroTitle;
+            document.getElementById('hero-sub').innerText = t.heroSub;
+            document.getElementById('hero-btn').innerText = t.heroBtn;
+            
+            document.getElementById('about-title').innerText = t.aboutTitle;
+            document.getElementById('about-text').innerText = t.aboutText;
+            
+            document.getElementById('trips-title').innerText = t.tripsTitle;
+            document.getElementById('branches-title').innerText = t.branchesTitle;
+            
+            document.getElementById('form-title').innerText = t.formTitle;
+            document.getElementById('form-sub').innerText = t.formSub;
+            document.getElementById('form-btn').innerText = t.formBtn;
+
+            // Change font based on language
+            if(lang === 'ar') {
+                document.body.style.fontFamily = "'Tajawal', sans-serif";
+            } else {
+                document.body.style.fontFamily = "'Poppins', sans-serif";
+            }
+        }
+    </script>
 </body>
 </html>
